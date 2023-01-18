@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export default function UpperCaseForm(props) {
   const [text, setText] = useState("");
-
   const [timer, setTimer] = useState(Date);
 
   function tick() {
@@ -98,7 +97,7 @@ export default function UpperCaseForm(props) {
                 <label htmlFor="inputText">Input Text</label>
                 <textarea
                   rows="4"
-                  className="focus:outline-gray-600 dark:bg-slate-900 focus:border-0 border border-black rounded-lg p-2 text-md font-normal dark:border-gray-50 transition-all"
+                  className="focus:outline-gray-600 dark:bg-inherit focus:border-0 border border-black rounded-lg p-2 text-md font-normal  transition-all"
                   type="text"
                   // value={text}
                   onChange={handleOnChange}
