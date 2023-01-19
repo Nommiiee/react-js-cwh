@@ -86,7 +86,7 @@ export default function UpperCaseForm(props) {
   return (
     <>
       <div className="w-full flex flex-col items-center justify-center gap-8 p-10  relative">
-        <div className="w-full xl:max-w-5xl ">
+        <div className="w-full xl:max-w-6xl ">
           <h1 className="text-center text-2xl font-bold">
             Text Utilities - Text to Uppercase, Lowercase, Titlecase, Reverse,
             Mocking Case
@@ -146,7 +146,7 @@ export default function UpperCaseForm(props) {
             </div>
           </div>
         </div>
-        <div className="w-full xl:max-w-5xl">
+        <div className="w-full xl:max-w-6xl">
           <div className="w-full">
             <div
               className="w-full flex flex-wrap items-center 

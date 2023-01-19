@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <>
       <header aria-label="Site Header" className="bg-gray-900 ">
-        <div className="mx-auto flex h-16 max-w-screen-lg items-center gap-8 px-4 sm:px-6 lg:px-8">
-          <a className="block text-teal-400" href={props.navLink1}>
+        <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+          <Link to={props.navLink1} className="block text-teal-400">
             <span className="sr-only">{props.navText1}</span>
             <svg
               className="h-8"
@@ -19,73 +20,73 @@ export default function Navbar(props) {
                 fill="currentColor"
               />
             </svg>
-          </a>
+          </Link>
 
           <div className="flex flex-1 items-center justify-end md:justify-between">
             <nav aria-label="Site Nav" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    href={props.navLink1}
+                    to={props.navLink1}
                   >
                     {props.navText1}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    href={props.navLink2}
+                    to={props.navLink2}
                   >
                     {props.navText2}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    href={props.navLink3}
+                    to={props.navLink3}
                   >
                     {props.navText3}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    href={props.navLink4}
+                    to={props.navLink4}
                   >
                     {props.navText4}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    href={props.navLink5}
+                    to={props.navLink5}
                   >
                     {props.navText5}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
 
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
-                <a
+                <Link
                   className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                  href="props.btnLink1"
+                  to="props.btnLink1"
                 >
                   Login
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-                  href="props.btnLink1"
+                  to="props.btnLink1"
                 >
                   Register
-                </a>
+                </Link>
               </div>
 
               <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">

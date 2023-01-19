@@ -24,8 +24,6 @@ export default function Colors(props) {
         textColor: tColor,
       },
     });
-
-    toggleMenu();
   }
 
   const toggleMenu = () => {
@@ -35,7 +33,6 @@ export default function Colors(props) {
       setMenuState(false);
     }
   };
-
 
   function disableDarkMode() {
     document.documentElement.classList.remove("dark");

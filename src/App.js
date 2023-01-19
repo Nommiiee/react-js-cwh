@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./assets/css/App.css";
 import Navbar from "./components/Navbar";
-import UpperCaseForm from "./components/UpperCaseForm";
 import Alert from "./components/Alert";
 import Colors from "./components/Colors";
+import UpperCaseForm from "./pages/UpperCaseForm";
+import Blog from "./pages/Blog";
+import Projects from "./pages/Projects";
+import Services from "./pages/Services";
+import About from "./pages/About";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -23,23 +29,31 @@ function App() {
 
   return (
     <>
-      <Navbar
-        navText1="Home"
-        navText2="Blog"
-        navText3="Projects"
-        navText4="Services"
-        navText5="About Me"
-        navLink1="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        navLink2="/"
-        navLink3="/"
-        navLink4="/"
-        navLink5="/"
-        btnLink1="/"
-        btnLink2="/"
-      />
-      <UpperCaseForm alert={displayAlert} />
       <Alert alert={alert} handleAlert={handleAlert} />
       <Colors displayAlert={displayAlert} />
+      <BrowserRouter>
+        <Navbar
+          navText1="Home"
+          navText2="Blog"
+          navText3="Projects"
+          navText4="Services"
+          navText5="About Me"
+          navLink1="/"
+          navLink2="/Blog"
+          navLink3="/Projects"
+          navLink4="/Services"
+          navLink5="/About"
+          btnLink1="/"
+          btnLink2="/"
+        />
+        <Routes>
+          <Route path="/" element={<UpperCaseForm alert={displayAlert} />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/Projects" element={<Projects />} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/About" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
