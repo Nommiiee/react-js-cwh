@@ -1,16 +1,23 @@
+// Library Imports
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Assets Imports
 import "./assets/css/App.css";
-import Navbar from "./components/Navbar";
+
+// Components Imports
 import Alert from "./components/Alert";
 import Colors from "./components/Colors";
+import Navbar from "./components/Navbar";
+
+// Pages Imports
 import UpperCaseForm from "./pages/UpperCaseForm";
 import Blog from "./pages/Blog";
 import Projects from "./pages/Projects";
 import Services from "./pages/Services";
 import About from "./pages/About";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+// Actual App To Be Rendered
 function App() {
   const [alert, setAlert] = useState(null);
 

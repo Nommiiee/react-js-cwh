@@ -15,7 +15,7 @@ export default function UpperCaseForm(props) {
       });
     }, 1000);
   }, []);
-
+  
   const handleOnChange = (e) => {
     setText(e.target.value);
   };
