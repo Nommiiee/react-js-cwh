@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// import handle from "../pages/TextUtils/Features";
-
 export default function UpperCaseForm(props) {
   const [text, setText] = useState("");
   const [timer, setTimer] = useState(Date);
@@ -22,7 +20,6 @@ export default function UpperCaseForm(props) {
     tick: () => {
       setTimer(Date);
     },
-
     onChange: (e) => {
       setText(e.target.value);
       console.log(text);
@@ -55,8 +52,8 @@ export default function UpperCaseForm(props) {
           newText += text[i].toLowerCase();
         } else {
           newText += text[i].toUpperCase();
-        }
-      }
+        };
+      };
       setText(newText);
       props.alert("Success", "changed to alternating text!");
     },
