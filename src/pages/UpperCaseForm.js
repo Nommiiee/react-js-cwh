@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 // import handle from "../pages/TextUtils/Features";
+
 
 export default function UpperCaseForm(props) {
   const [text, setText] = useState("");
@@ -23,32 +23,32 @@ export default function UpperCaseForm(props) {
       setTimer(Date);
     },
 
-    onChange: (e) => {
+    onChange: function( e) {
       setText(e.target.value);
       console.log(text);
       console.log("text");
     },
-    onUpperCase: (e) => {
+    onUpperCase: function (e, props) {
       setText(text.toUpperCase());
       props.alert("Success", "changed to the uppercase!");
     },
-    onLowerCase: (e) => {
+    onLowerCase: function (e, props) {
       setText(text.toLowerCase());
       props.alert("Success", "changed to the lowercase!");
     },
-    onReverse: (e) => {
+    onReverse: function (e, props) {
       setText(text.split("").reverse().join(""));
       props.alert("Success", "changed to the reverse text!");
     },
-    onReset: (e) => {
+    onReset: function (e, props)  {
       setText("");
       props.alert("Success", "everything has been reset!");
     },
-    onCopy: (e) => {
+    onCopy: function (e, props)  {
       navigator.clipboard.writeText(text);
       props.alert("Success", "Copied to clipboard!");
     },
-    onAlternatingCase: (e) => {
+    onAlternatingCase: function (e, props)  {
       let newText = "";
       for (let i = 0; i < text.length; i++) {
         if (i % 2 === 0) {
@@ -60,13 +60,13 @@ export default function UpperCaseForm(props) {
       setText(newText);
       props.alert("Success", "changed to alternating text!");
     },
-    onDownload: (e) => {
+    onDownload: function (e, props)  {
       const file = new Blob([text], { type: "text/plain" });
       const element = e.target;
       element.href = URL.createObjectURL(file);
       element.download = "text.txt";
     },
-    onTitleCase: (e) => {
+    onTitleCase: function (e, props) {
       const words = text.split(" ");
       const newWords = words.map((word) => {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
@@ -74,13 +74,12 @@ export default function UpperCaseForm(props) {
       setText(newWords.join(" "));
       props.alert("Success", "Title Case Has Been Applied!");
     },
-    wordCount: (str) => {
+    wordCount: function (str)  {
       //count words without sapces
       let response = str.split(/\s+/).filter((word) => word.length > 0).length;
       return response;
     },
   };
-
   return (
     <>
       <div className="w-full flex flex-col items-center justify-center gap-8 p-10  relative">
@@ -98,44 +97,44 @@ export default function UpperCaseForm(props) {
                   className="focus:outline-gray-600 dark:bg-inherit focus:border-0 border border-black rounded-lg p-2 text-md font-normal  transition-all"
                   type="text"
                   // value={text}
-                  onChange={handle.onChange}
+                  onChange={()=>{handle.onChange( props)}}
                   id="inputText"
                 />
               </div>
               <div className="mt-4 w-full flex flex-wrap items-center gap-4 text-white text-center text-md ">
                 <button
-                  onClick={handle.onUpperCase}
+                  onClick={()=>{handle.onUpperCase( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   To Uppercase
                 </button>
                 <button
-                  onClick={handle.onLowerCase}
+                  onClick={()=>{handle.onLowerCase( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   To Lower Case
                 </button>
                 <button
-                  onClick={handle.onTitleCase}
+                  onClick={()=>{handle.onTitleCase( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   To Title Case
                 </button>
                 <button
-                  onClick={handle.onReverse}
+                  onClick={()=>{handle.onReverseText( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   Reverse Text
                 </button>
                 <button
-                  onClick={handle.onAlternatingCase}
+                  onClick={()=>{handle.onMockingCase( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   Alternating Case
                 </button>
 
                 <button
-                  onClick={handle.onReset}
+                  onClick={()=>{handle.onClearText( props)}}
                   className=" px-4 py-1 rounded-md shadow-md bg-red-600 hover:bg-red-500 transition duration-75 hover:scale-105"
                 >
                   Rest All
@@ -164,7 +163,7 @@ export default function UpperCaseForm(props) {
                 <span>Here's the preview of your text </span>{" "}
                 <span className="flex flex-wrap gap-6 items-center justify-end">
                   <button
-                    onClick={handle.copyText}
+                    onClick={()=>{handle.onCopyText( props)}}
                     className="text-white text-center px-4 py-1 text-sm font-base rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                   >
                     Copy Text
@@ -172,7 +171,7 @@ export default function UpperCaseForm(props) {
                   <a
                     href="_blank"
                     role="button"
-                    onClick={handle.onDownload}
+                    onClick={()=>{handle.onDownloadFile( props)}}
                     className="text-white text-center px-4 py-1 text-sm font-base rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                   >
                     Download File
