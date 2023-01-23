@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+// import handle from "../pages/TextUtils/Features";
+
 export default function UpperCaseForm(props) {
   const [text, setText] = useState("");
   const [timer, setTimer] = useState(Date);
@@ -15,72 +17,68 @@ export default function UpperCaseForm(props) {
       });
     }, 1000);
   }, []);
-  
-  const handleOnChange = (e) => {
-    setText(e.target.value);
-  };
 
-  const handleUpperCase = (e) => {
-    setText(text.toUpperCase());
-    props.alert("Success", "changed to the uppercase!");
-  };
+  const handle = {
+    tick: () => {
+      setTimer(Date);
+    },
 
-  const handleLowerCase = (e) => {
-    setText(text.toLowerCase());
-    props.alert("Success", "changed to the lowercase!");
-  };
-
-  const handleReverse = (e) => {
-    setText(text.split("").reverse().join(""));
-    props.alert("Success", "changed to the reverse text!");
-  };
-
-  const handleReset = (e) => {
-    setText("");
-    document.getElementById("inputText").value = "";
-    props.alert("Success", "everything has been reset!");
-  };
-
-  const handleCopy = (e) => {
-    navigator.clipboard.writeText(text);
-    props.alert("Success", "Copied to clipboard!");
-  };
-
-  const handleAlternatingCase = (e) => {
-    let newText = "";
-    for (let i = 0; i < text.length; i++) {
-      if (i % 2 === 0) {
-        newText += text[i].toLowerCase();
-      } else {
-        newText += text[i].toUpperCase();
+    onChange: (e) => {
+      setText(e.target.value);
+      console.log(text);
+      console.log("text");
+    },
+    onUpperCase: (e) => {
+      setText(text.toUpperCase());
+      props.alert("Success", "changed to the uppercase!");
+    },
+    onLowerCase: (e) => {
+      setText(text.toLowerCase());
+      props.alert("Success", "changed to the lowercase!");
+    },
+    onReverse: (e) => {
+      setText(text.split("").reverse().join(""));
+      props.alert("Success", "changed to the reverse text!");
+    },
+    onReset: (e) => {
+      setText("");
+      props.alert("Success", "everything has been reset!");
+    },
+    onCopy: (e) => {
+      navigator.clipboard.writeText(text);
+      props.alert("Success", "Copied to clipboard!");
+    },
+    onAlternatingCase: (e) => {
+      let newText = "";
+      for (let i = 0; i < text.length; i++) {
+        if (i % 2 === 0) {
+          newText += text[i].toLowerCase();
+        } else {
+          newText += text[i].toUpperCase();
+        }
       }
-    }
-    setText(newText);
-    props.alert("Success", "changed to alternating text!");
-  };
-
-  const handleDownload = (e) => {
-    const file = new Blob([text], { type: "text/plain" });
-    const element = e.target;
-    element.href = URL.createObjectURL(file);
-    element.download = "text.txt";
-
-    props.alert("Success", "file downloaded started!");
-  };
-
-  const handleTitleCase = (e) => {
-    const words = text.split(" ");
-    const newWords = words.map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    });
-    setText(newWords.join(" "));
-    props.alert("Success", "Title Case Has Been Applied!");
-  };
-
-  const wordCount = (str) => {
-    //count words without sapces
-    let response = str.split(/\s+/).filter((word) => word.length > 0).length;
-    return response;
+      setText(newText);
+      props.alert("Success", "changed to alternating text!");
+    },
+    onDownload: (e) => {
+      const file = new Blob([text], { type: "text/plain" });
+      const element = e.target;
+      element.href = URL.createObjectURL(file);
+      element.download = "text.txt";
+    },
+    onTitleCase: (e) => {
+      const words = text.split(" ");
+      const newWords = words.map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      });
+      setText(newWords.join(" "));
+      props.alert("Success", "Title Case Has Been Applied!");
+    },
+    wordCount: (str) => {
+      //count words without sapces
+      let response = str.split(/\s+/).filter((word) => word.length > 0).length;
+      return response;
+    },
   };
 
   return (
@@ -100,44 +98,44 @@ export default function UpperCaseForm(props) {
                   className="focus:outline-gray-600 dark:bg-inherit focus:border-0 border border-black rounded-lg p-2 text-md font-normal  transition-all"
                   type="text"
                   // value={text}
-                  onChange={handleOnChange}
+                  onChange={handle.onChange}
                   id="inputText"
                 />
               </div>
               <div className="mt-4 w-full flex flex-wrap items-center gap-4 text-white text-center text-md ">
                 <button
-                  onClick={handleUpperCase}
+                  onClick={handle.onUpperCase}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
-                  To Upper Case
+                  To Uppercase
                 </button>
                 <button
-                  onClick={handleLowerCase}
+                  onClick={handle.onLowerCase}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   To Lower Case
                 </button>
                 <button
-                  onClick={handleTitleCase}
+                  onClick={handle.onTitleCase}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   To Title Case
                 </button>
                 <button
-                  onClick={handleReverse}
+                  onClick={handle.onReverse}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   Reverse Text
                 </button>
                 <button
-                  onClick={handleAlternatingCase}
+                  onClick={handle.onAlternatingCase}
                   className=" px-4 py-1 rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                 >
                   Alternating Case
                 </button>
 
                 <button
-                  onClick={handleReset}
+                  onClick={handle.onReset}
                   className=" px-4 py-1 rounded-md shadow-md bg-red-600 hover:bg-red-500 transition duration-75 hover:scale-105"
                 >
                   Rest All
@@ -157,8 +155,8 @@ export default function UpperCaseForm(props) {
             </div>
             <div>
               <p className="mt-4 ">
-                Total Words : <span>{wordCount(text)}</span> | Total Characters
-                : <span>{text.length}</span> | Reading Time :{" "}
+                Total Words : <span>{handle.wordCount(text)}</span> | Total
+                Characters : <span>{text.length}</span> | Reading Time :{" "}
                 <span>{(0.008 * text.split(" ").length).toFixed(2)}</span>{" "}
                 Minutes
               </p>
@@ -166,7 +164,7 @@ export default function UpperCaseForm(props) {
                 <span>Here's the preview of your text </span>{" "}
                 <span className="flex flex-wrap gap-6 items-center justify-end">
                   <button
-                    onClick={handleCopy}
+                    onClick={handle.copyText}
                     className="text-white text-center px-4 py-1 text-sm font-base rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                   >
                     Copy Text
@@ -174,7 +172,7 @@ export default function UpperCaseForm(props) {
                   <a
                     href="_blank"
                     role="button"
-                    onClick={handleDownload}
+                    onClick={handle.onDownload}
                     className="text-white text-center px-4 py-1 text-sm font-base rounded-md shadow-md bg-blue-600 hover:bg-blue-500 transition duration-75 hover:scale-105"
                   >
                     Download File
