@@ -50,11 +50,11 @@ export default function Colors(props) {
 
   return (
     <>
-      <div className=" rounded-full max-w-min flex flex-col group transition-all transform absolute bottom-10 right-10">
+      <div className="z-50 rounded-full max-w-min flex flex-col group transition-all transform absolute bottom-10 right-10">
         <button
           title="Theme Change"
           onClick={toggleMenu}
-          className="rounded-full w-12 h-12 p-1 flex  items-center justify-center bg-black text-white z-50 "
+          className="rounded-full w-12 h-12 p-1 flex  items-center justify-center bg-black text-white  "
         >
           <svg
             className="w-8 h-8"
