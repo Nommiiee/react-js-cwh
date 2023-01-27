@@ -48,9 +48,10 @@ export default function Colors(props) {
     });
   }
 
+
   return (
     <>
-      <div className="z-50 rounded-full max-w-min flex flex-col group transition-all transform absolute bottom-10 right-10">
+      <div className="z-50 rounded-full max-w-min flex flex-col group transition-all transform fixed bottom-10 right-10">
         <button
           title="Theme Change"
           onClick={toggleMenu}
