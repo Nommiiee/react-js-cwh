@@ -55,7 +55,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<UpperCaseForm alert={displayAlert} />} />
-          <Route path="/Blog" element={<Blog title="TCelebrities, TikTok, and a Cat Bot Are Crashing Chess.com" description="Millions of eager players have overrun the legacy website" date="2023-01-25T12:00:00Z" content="Trending in 2023 is one of the worlds oldest games played on a 17-year-old website: Chess.com. The site, which lets people take lessons, solve puzzles, and match up against computers or other players… " image="https://images.unsplash.com/photo-1674787246820-cb208f639bed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=798&q=80"/>}  />
+          <Route path="/Blog" element={<Blog />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/About" element={<About />} />
