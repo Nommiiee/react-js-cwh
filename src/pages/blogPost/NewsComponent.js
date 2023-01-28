@@ -3,15 +3,14 @@ import React, { Component } from "react";
 export default class NewsComponent extends Component {
   render() {
     let { title, description, image, date, content, href } = this.props;
-    console.log();
     return (
       <>
-        <div className="w-11/12 md:w-6/12 lg:w-4/12 p-4 card ">
-          <div className="w-full h-full rounded-lg shadow-lg border-2 border-black dark:bg-blue-900 overflow-hidden transition-all transform hover:-translate-y-2 hover:-translate-x-2">
-            <a href={href}>
-              <div className="w-full h-full overflow-hidden flex items-center justify-center">
+        <div className="w-11/12 md:w-6/12 lg:w-4/12 p-4 card max-h-fit ">
+          <div className="flex items-stretch h-full rounded-lg shadow-lg border-2 border-black dark:bg-blue-900 overflow-hidden transition-all transform hover:-translate-y-2 hover:-translate-x-2">
+            <a href={href} className="cursor-pointer">
+              <div className=" overflow-hidden flex items-center justify-center">
                 <img
-                  className="w-full h-40 object-cover"
+                  className="w-full h-44 object-cover"
                   src={image}
                   alt={title}
                 />

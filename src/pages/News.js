@@ -43,20 +43,20 @@ export default class Blog extends Component {
       "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/50ebf83dc2455ad6b21ca052cd185e9b.jpg",
       "publishedAt": "2023-01-11T19:00:00Z",
       "content": "Good news for James Cameron and giant blue cat-people aficionados alike: The Way of Water, the Avatar sequel, has made more than $1.7 billion and counting, paving the way for those three additional s… [+2288 chars]"
-    },
-    {
+    },{
       "source": {
         "id": null,
         "name": "Gizmodo.com"
       },
-      "author": "Nikki Main",
-      "title": "Clouded Leopard Escapes From Dallas Zoo Enclosure",
-      "description": "A clouded leopard was reported missing from the Dallas Zoo on Friday as staff say they showed up to work to find the cage empty. The zoo put out an urgent message on Twitter saying the clouded leopard is “non-threatening” but the zoo has shut down while they …",
-      "url": "https://gizmodo.com/clouded-leopard-dallas-zoo-1849986355",
-      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/7f1d2dff0f48a3cf91ffa274323b36e5.jpg",
-      "publishedAt": "2023-01-13T19:30:00Z",
-      "content": "A clouded leopard was reported missing from the Dallas Zoo on Friday as staff say they showed up to work to find the cage empty. The zoo put out an urgent message on Twitter saying the clouded leopar… [+2124 chars]"
+      "author": "Rob Bricken",
+      "title": "James Cameron Watches Movies Standing Up, Apparently",
+      "description": "Good news for James Cameron and giant blue cat-people aficionados alike: The Way of Water, the Avatar sequel, has made more than $1.7 billion and counting, paving the way for those three additional sequels the director has had planned. For Cameron, it’s a sig…",
+      "url": "https://gizmodo.com/avatar-way-of-water-james-cameron-theatrical-streaming-1849974846",
+      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/50ebf83dc2455ad6b21ca052cd185e9b.jpg",
+      "publishedAt": "2023-01-11T19:00:00Z",
+      "content": "Good news for James Cameron and giant blue cat-people aficionados alike: The Way of Water, the Avatar sequel, has made more than $1.7 billion and counting, paving the way for those three additional s… [+2288 chars]"
     },
+   
   ];
 
 
@@ -89,16 +89,17 @@ export default class Blog extends Component {
           </div>
           <div className="w-full h-full flex justify-center items-center">
 
-          <div className=" flex items-center justify-center md:justify-start flex-wrap w-11/12 ">
+          <div className=" flex items-stretch h-full flex-wrap w-11/12 border-2 border-black">
             {this.state.articles.map((article) => {
                 return (
                   <NewsComponent
+                  key={article.url}
                     title={article.title}
                     description={article.description}
                     image={article.urlToImage}
                     date={article.publishedAt}
                     content={article.content}
-                    hredf={article.url}
+                    href={article.url}
                     />
                     )
             })}              
