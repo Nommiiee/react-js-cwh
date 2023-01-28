@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-export default class Blogpost extends Component {
+export default class NewsComponent extends Component {
   render() {
     let { title, description, image, date, content, href } = this.props;
     console.log();
     return (
       <>
-        <div className="w-11/12 md:w-6/12 lg:w-4/12 p-4 card">
-          <div className="w-full h-full rounded-lg shadow-lg dark:bg-blue-900 overflow-hidden transition-all transform hover:-translate-y-2 hover:-translate-x-2">
+        <div className="w-11/12 md:w-6/12 lg:w-4/12 p-4 card ">
+          <div className="w-full h-full rounded-lg shadow-lg border-2 border-black dark:bg-blue-900 overflow-hidden transition-all transform hover:-translate-y-2 hover:-translate-x-2">
             <a href={href}>
               <div className="w-full h-full overflow-hidden flex items-center justify-center">
                 <img

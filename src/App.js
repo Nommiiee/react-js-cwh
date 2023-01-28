@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 
 // Pages Imports
 import UpperCaseForm from "./pages/UpperCaseForm";
-import Blog from "./pages/Blog";
+import News from "./pages/News";
 import Projects from "./pages/Projects";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -41,12 +41,12 @@ function App() {
       <BrowserRouter>
         <Navbar
           navText1="Home"
-          navText2="Blog"
+          navText2="News"
           navText3="Projects"
           navText4="Services"
           navText5="About Me"
           navLink1="/"
-          navLink2="/Blog"
+          navLink2="/News"
           navLink3="/Projects"
           navLink4="/Services"
           navLink5="/About"
@@ -55,7 +55,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<UpperCaseForm alert={displayAlert} />} />
-          <Route path="/Blog" element={<Blog />} />
+          <Route path="/News" element={<News />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/About" element={<About />} />
