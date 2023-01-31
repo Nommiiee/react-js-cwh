@@ -25,7 +25,7 @@ app.get("/Fetch", async (req, res, next) => {
   try {
     console.log(req.query);
     const skip = req.query.skip || 0;
-    const limit = req.query.limit || 10;  
+    const limit = req.query.limit || 10;
     const news = await News.find().limit(limit).skip(skip);
     res.json(news);
     next();
