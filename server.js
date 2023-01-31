@@ -23,11 +23,10 @@ app.listen(3001, () => {
 
 app.get("/Fetch", async (req, res, next) => {
   try {
-    console.log(req.query);
-    const skip = req.query.skip || 0;
-    const limit = req.query.limit || 10;
-    const news = await News.find().skip(skip).limit(limit);
-    res.json(news);
+    const skip = req.query.skip || 5;
+    const limit = req.query.limit || 10;  
+    const news = await News.find().limit(limit).skip(skip);
+    res.json({articles: news, skip: skip, limit: limit});
     next();
   } catch (error) {
     console.log(error);
