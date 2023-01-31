@@ -8,21 +8,21 @@ export default class Blog extends Component {
     this.state = {
       articles: [],
       loading: false,
-      page: 1,
+      page: 0,
+      comState: true,
     };
   }
 
-  componentDidMount() {
-    console.log("Component Did Mount");
-    this.loadNews();
+  async componentDidMount() {
+    // if (this.state.comState) {
+    //   this.setState({ comState: false });
+    //   this.fetch();
+    // }
   }
 
-  async loadNews() {
-    const fetchURI = "http://localhost:3001/Fetch";
-
-    // const URL = `https://newsapi.org/v2/top-headlines?country=IN&apiKey=6c7a00a45b7149798b05cdcc0465a8c8&page=${this.state.page}&pageSize=2`;
-
-    const data = await fetch(fetchURI, {
+  fetch = async () => {
+    const fetchURI = `http://localhost:3001/Fetch?skip=${this.state.page}&limit=5`;
+    const articles = await fetch(fetchURI, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -30,11 +30,12 @@ export default class Blog extends Component {
       .finally(() => console.log("Done"));
     // push the data to the state
     this.setState({
-      articles: [...this.state.articles, ...data.articles],
+      articles: [...this.state.articles, ...articles],
       loading: false,
     });
-    console.log(this.state.articles);
-  }
+
+    this.setState({ page: this.state.page + 1 });
+  };
 
   render() {
     return (
@@ -79,7 +80,10 @@ export default class Blog extends Component {
             </div>
           </div>
           <div className="w-full p-2 flex items-center justify-center">
-            <button className="px-8 py-2 text-lg text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 hover:-translate-y-1 transform transition-all">
+            <button
+              onClick={this.fetch}
+              className="px-8 py-2 text-lg text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 hover:-translate-y-1 transform transition-all"
+            >
               Load More
             </button>
           </div>
