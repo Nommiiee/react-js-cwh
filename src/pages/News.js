@@ -21,25 +21,50 @@ export default class Blog extends Component {
   }
 
   fetch = async () => {
+    this.setState({ loading: true });
     const fetchURI = `http://localhost:3001/Fetch?skip=${this.state.page}&limit=5`;
-    const articles = await fetch(fetchURI, {
+    const news = await fetch(fetchURI, {
       method: "GET",
     })
       .then((response) => response.json())
       .catch((err) => console.log(err))
       .finally(() => console.log("Done"));
     // push the data to the state
-    this.setState({
-      articles: [...this.state.articles, ...articles],
-      loading: false,
-    });
-
-    this.setState({ page: this.state.page + 1 });
+    setTimeout(() => {
+      
+      this.setState({
+        articles: [...this.state.articles, ...news.articles],
+        loading: false,
+        page: this.state.page + 5 
+      });
+    }, 500);
   };
 
+ loadArticles = (target) => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        setTimeout(() => {
+          console.log(this.state.loading);
+          if (entry.isIntersecting && !this.state.loading) {
+            this.fetch();
+            observer.disconnect();
+          }
+        }, 500);
+      });
+    },{
+      root: null,
+      rootMargin: "0px",
+      threshold: 1
+    });
+    io.observe(target);
+  };
+  
+  
   render() {
-    return (
-      <div className="w-full h-full flex item-center justify-center ">
+
+    
+    return (<>
+      <div onLoad={()=>{this.loadArticles(document.querySelector(".loadMore"))}} className="w-full h-full flex item-center justify-center ">
         <div className=" w-full max-w-6xl">
           <div className="w-full mt-10">
             <h1 className="text-2xl text-center font-serif font-semibold">
@@ -82,13 +107,15 @@ export default class Blog extends Component {
           <div className="w-full p-2 flex items-center justify-center">
             <button
               onClick={this.fetch}
-              className="px-8 py-2 text-lg text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 hover:-translate-y-1 transform transition-all"
+              className="loadMore px-8 py-2 text-lg text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 hover:-translate-y-1 transform transition-all"
             >
               Load More
             </button>
           </div>
         </div>
       </div>
+
+    </>
     );
   }
 }
