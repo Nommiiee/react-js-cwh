@@ -24,9 +24,19 @@ app.listen(3001, () => {
 app.get("/Fetch", async (req, res, next) => {
   try {
     const skip = req.query.skip || 5;
-    const limit = req.query.limit || 10;  
+    const limit = req.query.limit || 10;
+    let extraContent = true;
     const news = await News.find().limit(limit).skip(skip);
-    res.json({articles: news, skip: skip, limit: limit});
+
+    if (news.length === 0) {
+      extraContent = false;
+    }
+    res.json({
+      articles: news,
+      skip: skip,
+      limit: limit,
+      moreContent: extraContent,
+    });
     next();
   } catch (error) {
     console.log(error);
