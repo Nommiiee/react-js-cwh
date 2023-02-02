@@ -39,22 +39,10 @@ function App() {
       <Alert alert={alert} handleAlert={handleAlert} />
       <Colors displayAlert={displayAlert} />
       <BrowserRouter>
-        <Navbar
-          navText1="Home"
-          navText2="News"
-          navText3="Projects"
-          navText4="Services"
-          navText5="About Me"
-          navLink1="/"
-          navLink2="/News"
-          navLink3="/Projects"
-          navLink4="/Services"
-          navLink5="/About"
-          btnLink1="/"
-          btnLink2="/"
-        />
+        <Navbar navTest={["Home", "News", "Projects", "Services", "About Me"]} btnLink1="/" btnLink2="/" />
         <Routes>
-          <Route path="/" element={<UpperCaseForm alert={displayAlert} />} />
+        <Route path="/" element={<UpperCaseForm alert={displayAlert} />} />
+          <Route path="/Home" element={<UpperCaseForm alert={displayAlert} />} />
           <Route path="/News" element={<News />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Services" element={<Services />} />

@@ -7,8 +7,8 @@ export default function Navbar(props) {
     <>
       <header aria-label="Site Header" className="bg-gray-900 ">
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-          <Link to={props.navLink1} className="block text-teal-400">
-            <span className="sr-only">{props.navText1}</span>
+          <Link to="/" className="block text-teal-400">
+            <span className="sr-only">Homepage</span>
             <svg
               className="h-8"
               viewBox="0 0 28 24"
@@ -25,50 +25,31 @@ export default function Navbar(props) {
           <div className="flex flex-1 items-center justify-end md:justify-between">
             <nav aria-label="Site Nav" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <Link
+              {
+                props.navTest.map((item, index) => {
+                  if(item === 'Home') {
+                  return (
+                    <li key="/">
+                  <Link 
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    to={props.navLink1}
+                    to={(`/`)}
                   >
-                    {props.navText1}
+                      Home
                   </Link>
-                </li>
-
-                <li>
-                  <Link
+                </li>  )
+              } else {
+                
+                return (
+                    <li key={item}>
+                  <Link 
                     className="text-gray-50 transition hover:text-gray-50/75"
-                    to={props.navLink2}
+                    to={(`/${item}`)}
                   >
-                    {props.navText2}
+                    {item}
                   </Link>
-                </li>
-
-                <li>
-                  <Link
-                    className="text-gray-50 transition hover:text-gray-50/75"
-                    to={props.navLink3}
-                  >
-                    {props.navText3}
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    className="text-gray-50 transition hover:text-gray-50/75"
-                    to={props.navLink4}
-                  >
-                    {props.navText4}
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    className="text-gray-50 transition hover:text-gray-50/75"
-                    to={props.navLink5}
-                  >
-                    {props.navText5}
-                  </Link>
-                </li>
+                </li>  )
+                 }})
+              }
               </ul>
             </nav>
 
@@ -83,7 +64,7 @@ export default function Navbar(props) {
 
                 <Link
                   className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-                  to="props.btnLink1"
+                  to="props.btnLink2"
                 >
                   Register
                 </Link>
@@ -115,16 +96,7 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  navText1: PropTypes.string,
-  navText2: PropTypes.string,
-  navText3: PropTypes.string,
-  navText4: PropTypes.string,
-  navText5: PropTypes.string,
-  navLink1: PropTypes.string,
-  navLink2: PropTypes.string,
-  navLink3: PropTypes.string,
-  navLink4: PropTypes.string,
-  navLink5: PropTypes.string,
-  btnLink1: PropTypes.string,
-  btnLink2: PropTypes.string,
+  navTest:PropTypes.array,
+  btnLink1:PropTypes.string,
+  btnLink2:PropTypes.string
 };

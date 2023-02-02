@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import NewsComponent from "./blogPost/NewsComponent";
+import NewsComponent from "../components/NewsComponent";
 
 export default class Blog extends Component {
   constructor() {

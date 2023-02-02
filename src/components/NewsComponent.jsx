@@ -24,7 +24,7 @@ export default class NewsComponent extends Component {
                   </div>
                 </div>
               <div className="w-full flex items-center justify-end p-4">
-                  <a href={href} target="_blank"  className="">
+                  <a href={href} target="_blank" rel="noreferrer" className="">
                   <button className="px-4 py-1 rounded-lg shadow-lg bg-blue-500 text-white hover:bg-blue-600 transtition transform-all">
                     Read More
                   </button>
