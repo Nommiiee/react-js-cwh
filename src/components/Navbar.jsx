@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import Logo from "../assets/logo.svg";
@@ -10,20 +10,20 @@ export default function Navbar(Props) {
     return isOpen ? setIsOpen(false) : setIsOpen(true);
   };
 
-  if (isOpen) {
-    console.log("open");
-  } else {
-    console.log("close");
-  }
+  useEffect(() => {
+    if (window.innerWidth >= 1024 && isOpen) {
+      setIsOpen(false);
+    }
+  }, []);
 
   return (
     <>
-      <div className="w-full bg-gray-800 text-gray-200">
-        <nav className="w-full h-20 p-4 flex justify-center border-2 border-white items-center ">
+      <div className="w-full bg-gray-800 text-gray-200 flex justify-center">
+        <nav className="w-full h-20 p-4 flex justify-center items-center max-w-7xl ">
           <ul className="w-11/12 flex items-center justify-between text-xl ">
             <li className="">
               <a href="/" className="flex items-center gap-x-4">
-                <img src={Logo} alt="" /> ReactApp
+                <img src={Logo} alt="React App Logo" /> ReactApp
               </a>
             </li>
             <div
