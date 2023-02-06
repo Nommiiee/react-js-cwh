@@ -39,25 +39,6 @@ export default class Blog extends Component {
     }
   };
 
-  // loadArticles = (target) => {
-  //   const io = new IntersectionObserver(
-  //     (entries, observer) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting && !this.state.loading) {
-  //           this.fetch();
-  //           observer.disconnect();
-  //         }
-  //       });
-  //     },
-  //     {
-  //       root: null,
-  //       rootMargin: "0px",
-  //       threshold: 1,
-  //     }
-  //   );
-  //   io.observe(target);
-  // };
-
   render() {
     return (
       <>
