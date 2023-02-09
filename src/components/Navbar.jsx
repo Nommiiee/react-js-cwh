@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Logo from "../assets/logo.svg";
@@ -22,17 +23,17 @@ export default function Navbar(Props) {
         <nav className="w-full h-20 p-4 flex justify-center items-center max-w-7xl ">
           <ul className="w-11/12 flex items-center justify-between text-xl ">
             <li className="">
-              <a href="/" className="flex items-center gap-x-4">
+              <Link to="/" className="flex items-center gap-x-4">
                 <img src={Logo} alt="React App Logo" /> ReactApp
-              </a>
+              </Link>
             </li>
             <div
-              className={`w-10/12  h-screen fixed p-6 top-0 right-0 z-50 flex flex-col bg-gray-800 items-end transform transition-all lg:relative lg:flex-row lg:h-0 lg:items-center lg:justify-end lg:max-w-max lg:z-0 lg:translate-x-0 ${
+              className={`w-10/12  h-screen fixed p-8 lg:p-0 top-0 right-0 z-50 bg-gray-800  flex flex-col gap-6 items-end transform transition-all lg:relative lg:flex-row lg:h-full lg:items-center lg:justify-end lg:max-w-max lg:z-0 lg:translate-x-0 ${
                 isOpen ? "translate-x-0" : "translate-x-full"
               }`}
               id="menu"
             >
-              <div className="p-2 lg:hidden">
+              <div className="lg:hidden">
                 <button className="" onClick={toggleMenu}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +51,7 @@ export default function Navbar(Props) {
                   </svg>
                 </button>
               </div>
-              <div className="w-full p-2 lg:hidden">
+              <div className="w-full lg:hidden">
                 <div className="bg-white rounded-sm shadow-lg w-full text-gray-800 flex items-center ">
                   <input
                     type="text"
@@ -78,13 +79,13 @@ export default function Navbar(Props) {
                 </div>
               </div>
               {
-                <div className="flex flex-col justify-center items-end lg:flex-row lg:justify-end lg:gap-x-8">
+                <div className="flex flex-col justify-center items-end lg:flex-row lg:justify-end gap-8">
                   {Props.navItems.map((item) => {
                     return (
-                      <li className="p-2  flex justify-end " key={item.link}>
-                        <a href={item.link} className="">
+                      <li className="flex justify-end " key={item.link}>
+                        <Link to={item.link} className="">
                           {item.title}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}

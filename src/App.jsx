@@ -1,23 +1,32 @@
 import { useState } from "react";
 import "./App.css";
-import TextUtlits from "./pages/TextUtlits";
 import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TextUtlits from "./pages/TextUtlits";
+import News from "./pages/News";
+import { func } from "prop-types";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className="w-full h-full ">
-        <Navbar
-          navItems={[
-            { link: "/", title: "Home" },
-            { link: "/Text", title: "Text Utils" },
-            { link: "/News", title: "News App" },
-          ]}
-        />
-        <TextUtlits />
-      </div>
+      <BrowserRouter>
+        <div className="w-full h-full ">
+          <Navbar
+            navItems={[
+              { link: "/", title: "Home" },
+              { link: "/Text", title: "Text Utils" },
+              { link: "/News", title: "News App" },
+            ]}
+          />
+          <Routes>
+            <Route path="/" element={<TextUtlits />} />
+            <Route path="/Text" element={<TextUtlits />} />
+            <Route path="/News" element={<News />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }
