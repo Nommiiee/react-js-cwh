@@ -142,7 +142,9 @@ export default function TextUtlits() {
               </div>
               <div>
                 <p className="font-semibold text-xl lg:text-2xl">Preview</p>
-                <p className="text-gray-600 text-lg lg:text-xl">{text}</p>
+                <p className="text-gray-600 dark:text-white text-lg lg:text-xl">
+                  {text}
+                </p>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TextUtlits from "./pages/TextUtlits";
 import News from "./pages/News";
-import { func } from "prop-types";
+import Color from "./components/Color";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className="w-full h-full ">
+        <Color />
           <Navbar
             navItems={[
               { link: "/", title: "Home" },
