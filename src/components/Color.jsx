@@ -40,7 +40,7 @@ export default function Color() {
 
   return (
     <>
-      <div className="fixed bottom-10 right-10">
+      <div className="fixed bottom-10 right-10 z-50">
         <div className="flex flex-col-reverse gap-y-4 ">
           <button
             onClick={handleColorOpen}

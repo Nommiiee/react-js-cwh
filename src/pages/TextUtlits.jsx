@@ -89,7 +89,7 @@ export default function TextUtlits() {
               ></textarea>
             </div>
           </div>
-          <div className="w-full flex flex-col items-center justify-center ">
+          <div className="w-full flex flex-col items-center justify-center  ">
             <div className="pt-10 w-full flex flex-wrap items-center gap-8 font-semibold">
               <button
                 onClick={handleUpperCase}
