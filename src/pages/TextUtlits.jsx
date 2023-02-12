@@ -112,6 +112,7 @@ export default function TextUtlits() {
               <button onClick={handleCopy} className="btn  bg-green-700 ">
                 Copy Text
               </button>
+
               <button
                 onClick={handleClearAll}
                 className="w-4/12 md:w-32 bg-red-600 text-gray-100 p-2 rounded-sm shadow-sm hover:bg-opacity-90 hover:scale-105 transform transition-all duration-75 focus:outline-double"
