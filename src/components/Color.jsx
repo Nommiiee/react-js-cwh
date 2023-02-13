@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 export default function Color() {
-  const [color, setColor] = useState({
-    darkColor: "dark:bg-gray-100",
-    darkText: "dark:text-slate-900",
+  const [background, setBackground] = useState(() => {
+    return "dark:bg-gray-100";
+  });
+
+  const [text, setText] = useState(() => {
+    return "dark:text-slate-900";
   });
 
   function handleColorOpen() {
@@ -17,24 +20,18 @@ export default function Color() {
     const document = window.document.querySelector("html");
     document.classList.add("dark");
 
-    setColor({
-      darkColor: bgColor,
-      darkText: textColor,
-    });
+    setBackground(bgColor);
+    setText(textColor);
 
     const body = window.document.querySelector("body");
-    if (
-      body.classList.contains(color.darkColor) &&
-      body.classList.contains(color.darkText)
-    ) {
-      body.classList.replace(color.darkColor, bgColor);
-      body.classList.replace(color.darkText, textColor);
+    if (body.classList.contains(background) && body.classList.contains(text)) {
+      body.classList.replace(background, bgColor);
+      body.classList.replace(text, textColor);
     } else {
       body.classList.add(bgColor);
       body.classList.add(textColor);
     }
 
-    handleColorOpen();
     return;
   }
 
