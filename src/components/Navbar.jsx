@@ -28,7 +28,7 @@ export default function Navbar(Props) {
               </Link>
             </li>
             <div
-              className={`w-10/12  h-screen fixed p-8 lg:p-0 top-0 right-0 z-50 bg-gray-800  flex flex-col gap-6 items-end transform transition-all lg:relative lg:flex-row lg:h-full lg:items-center lg:justify-end lg:max-w-max lg:z-0 lg:translate-x-0 ${
+              className={`w-10/12 duration-300 h-screen fixed p-8 lg:p-0 top-0 right-0 z-50 bg-gray-800  flex flex-col gap-6 items-end transform transition-all lg:relative lg:flex-row lg:h-full lg:items-center lg:justify-end lg:max-w-max lg:z-0 lg:translate-x-0 ${
                 isOpen ? "translate-x-0" : "translate-x-full"
               }`}
               id="menu"

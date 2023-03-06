@@ -6,6 +6,7 @@ import TextUtlits from "./pages/TextUtlits";
 import News from "./pages/News";
 import Color from "./components/Color";
 import Home from "./pages/Home";
+import Library from "./pages/Library";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,19 +14,21 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="w-full h-full ">
+        <div className="w-full h-full  ">
           <Color />
           <Navbar
             navItems={[
               { link: "/", title: "Home" },
               { link: "/Text", title: "Text Utils" },
               { link: "/News", title: "News App" },
+              { link: "/Library", title: "Library" },
             ]}
           />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Text" element={<TextUtlits />} />
             <Route path="/News" element={<News />} />
+            <Route path="/Library" element={<Library />} />
           </Routes>
         </div>
       </BrowserRouter>

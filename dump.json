@@ -1,0 +1,71 @@
+{
+    "status": "ok",
+    "totalResults": 36,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "CNBC"
+            },
+            "author": "Amelia Lucas",
+            "title": "Nestle, Tyson and other food giants bet on air fryer boom to grow sales - CNBC",
+            "description": "U.S. consumers spent nearly $1 billion last year buying air fryers, up 51% from 2019.",
+            "url": "https://www.cnbc.com/2023/03/05/nestle-tyson-air-fryer-boom.html",
+            "urlToImage": "https://image.cnbcfm.com/api/v1/image/107203061-1677866696874-gettyimages-1229771095-KROGER_BLACK_FRIDAY.jpeg?v=1678024801&w=1920&h=1080",
+            "publishedAt": "2023-03-05T14:00:01Z",
+            "content": "Kettle Foods, known for its kettle-cooked potato chips, recently unveiled what it called \"the future of the potato chip category\": air-fried chips.\r\nThe Campbell Soup brand's snack launch, made with … [+5648 chars]"
+        },
+        {
+            "source": {
+                "id": "the-hill",
+                "name": "The Hill"
+            },
+            "author": "Stephen Neukam",
+            "title": "Hogan says he won’t run for president in 2024 - The Hill",
+            "description": "Former Maryland Gov. Larry Hogan, a moderate Republican who has been an outspoken critic of former President Trump, announced he would not run for president in 2024 after giving it “serious consideration.” “I did give it serious consideration and I talked to …",
+            "url": "https://thehill.com/homenews/campaign/3884837-hogan-says-he-wont-run-for-president-in-2024/",
+            "urlToImage": "https://thehill.com/wp-content/uploads/sites/2/2023/02/hoganlarry_021923ap.jpg?w=1280",
+            "publishedAt": "2023-03-05T13:55:00Z",
+            "content": "Skip to content\r\nFormer Maryland Gov. Larry Hogan, a moderate Republican who has been an outspoken critic of former President Trump, announced he would not run for president in 2024 after giving it “… [+2383 chars]"
+        },
+        {
+            "source": {
+                "id": "cnn",
+                "name": "CNN"
+            },
+            "author": "Kevin Liptak",
+            "title": "Biden to visit Selma as he makes his own case for voting rights - CNN",
+            "description": "President Joe Biden will visit Alabama on Sunday to commemorate the 58th anniversary of the landmark Bloody Sunday march that galvanized the Civil Rights movement and helped lead to an expansion of voting rights.",
+            "url": "https://www.cnn.com/2023/03/05/politics/joe-biden-selma-bloody-sunday/index.html",
+            "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230303163353-joe-biden-white-house-file-030123.jpg?c=16x9&q=w_800,c_fill",
+            "publishedAt": "2023-03-05T13:32:00Z",
+            "content": "President Joe Biden will visit Alabama on Sunday to commemorate the 58th anniversary of the landmark Bloody Sunday march that galvanized the Civil Rights movement and helped lead to an expansion of v… [+2975 chars]"
+        },
+        {
+            "source": {
+                "id": "the-washington-post",
+                "name": "The Washington Post"
+            },
+            "author": "Jill U. Adams",
+            "title": "Treating asthma is critical to living with it - The Washington Post",
+            "description": "Experts are still trying to pin down why there are so many cases of the condition today.",
+            "url": "https://www.washingtonpost.com/wellness/2023/03/05/asthma-more-common-in-women/",
+            "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/7QLOJUS4ZNHDDF7C6VLLWFNASU.gif&w=1440",
+            "publishedAt": "2023-03-05T12:27:23Z",
+            "content": "Comment on this story\r\nI used to think asthma was a condition you either had or didnt, and that it was typically diagnosed in childhood.\r\nThat changed when I was diagnosed with asthma in my 50s.\r\nIm … [+7233 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Prideofdetroit.com"
+            },
+            "author": "Erik Schlitt",
+            "title": "2023 NFL Combine results: 12 standouts from the wide receiver prospects - Pride Of Detroit",
+            "description": "Wide receiver is a deep group and the Detroit Lions could consider a lot of different prospects.",
+            "url": "https://www.prideofdetroit.com/2023/3/5/23624920/2023-nfl-combine-results-12-standouts-wide-receiver-prospects",
+            "urlToImage": "https://cdn.vox-cdn.com/thumbor/uB4UWsWRv5OAktDUGYFWNsP8GgA=/0x0:5932x3106/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/24480061/usa_today_20145824.jpg",
+            "publishedAt": "2023-03-05T12:15:00Z",
+            "content": "The 2023 NFL Combine has wrapped up defensive drills, and on Saturday, the offense was on the field for televised drills. As is tradition, one group began by running the 40-yard dash, then shifted in… [+5848 chars]"
+        }
+    ]
+}

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Popup from "../components/Popup";
 
 export default function TextUtlits() {
   const [text, setText] = useState("");
+  const [copyState, setCopyState] = useState(false);
 
   const [options, setOptions] = useState({
     upperCase: false,
@@ -64,12 +66,21 @@ export default function TextUtlits() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setCopyState(true);
+        setTimeout(() => {
+          if (copyState) setCopyState(false);
+        }, 2000);
+      })
+      .catch(() => {});
   };
 
   return (
     <>
       <div className="w-full h-full flex justify-center">
+        {copyState && <Popup text="Copied to Clipboard" />}
         <div className="w-11/12 h-full max-w-7xl">
           <div className="my-10 text-center">
             <h1 className="text-3xl md:text-4xl font-semibold">TextUtlits</h1>
