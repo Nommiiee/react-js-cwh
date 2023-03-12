@@ -9,12 +9,19 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const routePoints = [
+    "General",
+    "Business",
+    "Entertainment",
+    "Health",
+    "Science",
+    "Sports",
+    "Technology",
+  ];
   return (
     <>
       <BrowserRouter>
-        <div className="w-full h-full  ">
+        <div className="w-full h-full ">
           <Color />
           <Navbar
             navItems={[
@@ -27,7 +34,124 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Text" element={<TextUtlits />} />
-            <Route path="/News" element={<News />} />
+
+            <Route
+              exact
+              path="/All"
+              element={
+                <News
+                  key="General"
+                  category="General"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+
+            {routePoints.map((routePoint) => {
+              return (
+                <>
+                  <Route
+                    key={routePoint}
+                    path={`/${routePoint}`}
+                    exact
+                    element={
+                      <News
+                        key={routePoint}
+                        category={routePoint}
+                        country="in"
+                        pageSize={6}
+                      />
+                    }
+                  />
+                </>
+              );
+            })}
+
+            {/* <Route
+              exact
+              path="/Business"
+              element={
+                <News
+                  key="Business"
+                  category="Business"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/Entertainment"
+              element={
+                <News
+                  key="Entertainment"
+                  category="Entertainment"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/General"
+              element={
+                <News
+                  key="General"
+                  category="General"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/Health"
+              element={
+                <News
+                  key="Health"
+                  category="Health"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/Science"
+              element={
+                <News
+                  key="Science"
+                  category="Science"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/Sports"
+              element={
+                <News
+                  key="Sports"
+                  category="Sports"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/Technology"
+              element={
+                <News
+                  key="Technology"
+                  category="Technology"
+                  country="in"
+                  pageSize={6}
+                />
+              }
+            /> */}
             <Route path="/Library" element={<Library />} />
           </Routes>
         </div>

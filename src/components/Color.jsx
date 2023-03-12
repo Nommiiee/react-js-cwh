@@ -35,6 +35,18 @@ export default function Color() {
     return;
   }
 
+  const removeDarkMode = () => {
+    const document = window.document.querySelector("html");
+    document.classList.remove("dark");
+
+    const body = window.document.querySelector("body");
+    body.classList.remove(background);
+    body.classList.remove(text);
+
+    setBackground("dark:bg-gray-100");
+    setText("dark:text-slate-900");
+  };
+
   return (
     <>
       <div className="fixed bottom-10 right-10 z-50">
@@ -149,7 +161,8 @@ export default function Color() {
           </button>
           <button
             onClick={() => {
-              handleDarkMode("dark:bg-gray-100", "dark:text-gray-900");
+              removeDarkMode();
+              // handleDarkMode("dark:bg-gray-100", "dark:text-gray-900");
             }}
             className="bg-gray-100 text-gray-900 w-12 h-12 rounded-full p-2 z-0 color-btn scale-0 transition-all transform duration-[500ms] border border-gray-900  "
           >

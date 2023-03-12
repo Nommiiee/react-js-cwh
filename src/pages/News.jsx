@@ -1,36 +1,33 @@
 import React from "react";
 import NewsPost from "../components/NewsPost";
-import dump from "./dump.json";
 import Loading from "../components/Loading";
+import PropTypes from "prop-types";
+import NewsCategories from "../components/NewsCategories";
 
 export default class News extends React.Component {
-  constructor() {
-    super();
-
-    this.loading = false;
-    this.page = 0;
-    this.totalResults = 0;
-    this.articles = [];
-    this.country = "in";
-    this.pageSize = 5;
-  }
-
-  state = {
-    loading: true,
-    page: 1,
-    totalResults: 0,
-    articles: [...dump.articles],
-    country: "in",
-    pageSize: 5,
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
   };
 
+  constructor() {
+    super();
+    this.state = {
+      loading: false,
+      page: 1,
+      totalResults: 1,
+      articles: [],
+    };
+  }
+
   componentDidMount() {
-    // this.fetchNews();
+    this.fetchNews();
   }
 
   fetchNews = async () => {
     this.setState({ loading: true });
-    const URI = `https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=6c7a00a45b7149798b05cdcc0465a8c8&pageSize=${this.state.pageSize}&page=${this.state.page}`;
+    const URI = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6c7a00a45b7149798b05cdcc0465a8c8&pageSize=${this.props.pageSize}&page=${this.state.page}`;
     fetch(URI)
       .then((res) => {
         res.json().then((data) => {
@@ -38,7 +35,7 @@ export default class News extends React.Component {
           // push the data.articles to the state
           setTimeout(() => {
             this.setState({
-              articles: [this.articles, ...data.articles],
+              articles: [...data.articles],
               totalResults: data.totalResults,
               loading: false,
             });
@@ -53,31 +50,33 @@ export default class News extends React.Component {
   handleNextPage = () => {
     if (
       this.state.page + 1 >
-      Math.ceil(this.state.totalResults / this.state.pageSize)
+      Math.ceil(this.state.totalResults / this.props.pageSize)
     ) {
       return;
     }
-    this.setState({ page: this.state.page + 1 });
-    this.fetchNews();
+
+    this.setState({ page: this.state.page + 1 }, () => {
+      this.fetchNews();
+    });
   };
 
   handlePrevPage = () => {
-    if (this.state.page <= 0) {
+    if (this.state.page <= 0 || this.state.page === 1) {
       return;
     }
-    this.setState({ page: this.state.page - 1 });
-    this.fetchNews();
+    this.setState({ page: this.state.page - 1 }, () => {
+      this.fetchNews();
+    });
   };
 
   handleOnClick = (ele) => {
-    console.log(ele.target);
     const btn = ele.target;
     btn.classList.add("scale-95");
     btn.classList.add("translate-y-1");
     setTimeout(() => {
       btn.classList.remove("scale-95");
       btn.classList.remove("translate-y-1");
-    }, 150);
+    }, 75);
   };
 
   render() {
@@ -88,7 +87,10 @@ export default class News extends React.Component {
             Welcome to{" "}
             <span className="text-blue-600 font-semibold ">News API App</span>
           </h1>
-          <div className="w-full sm:flex justify-start flex-wrap border-black border-2">
+          <div>
+            <NewsCategories />
+          </div>
+          <div className="w-full sm:flex justify-start flex-wrap ">
             {this.state.loading && <Loading />}
             {!this.state.loading &&
               this.state.articles.map((article) => (
@@ -99,10 +101,12 @@ export default class News extends React.Component {
                       ? article.urlToImage
                       : "https://http.cat/204"
                   }
-                  title={article.title ? article.title : "No Title"}
-                  description={article.description ? article.description : ""}
-                  url={article.url ? article.url : ""}
-                  author={article.author ? article.author : "No Author"}
+                  title={article.title ? article.title : "Not Found"}
+                  description={
+                    article.description ? article.description : "Not Found"
+                  }
+                  url={article.url ? article.url : "#"}
+                  author={article.author ? article.author : "Not Found"}
                 />
               ))}
           </div>
@@ -116,6 +120,19 @@ export default class News extends React.Component {
             >
               Prev
             </button>
+            <div>
+              <span className="text-gray-500 font-medium text-lg"> Page </span>
+              <span className="text-gray-900 font-semibold text-lg">
+                {" "}
+                {this.state.page}{" "}
+              </span>
+              <span className="text-gray-500 font-medium text-lg">
+                {" "}
+                of {Math.ceil(
+                  this.state.totalResults / this.props.pageSize
+                )}{" "}
+              </span>
+            </div>
             <button
               onClick={(btn) => {
                 this.handleOnClick(btn);

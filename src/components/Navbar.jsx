@@ -6,6 +6,7 @@ import Logo from "../assets/logo.svg";
 
 export default function Navbar(Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [subMenu, setSubMenu] = useState(false);
 
   const toggleMenu = () => {
     return isOpen ? setIsOpen(false) : setIsOpen(true);
@@ -16,6 +17,11 @@ export default function Navbar(Props) {
       setIsOpen(false);
     }
   }, []);
+
+  const handleSubmenu = (e) => {
+    console.log(subMenu);
+    subMenu ? setSubMenu(false) : setSubMenu(true);
+  };
 
   return (
     <>
@@ -82,10 +88,8 @@ export default function Navbar(Props) {
                 <div className="flex flex-col justify-center items-end lg:flex-row lg:justify-end gap-8">
                   {Props.navItems.map((item) => {
                     return (
-                      <li className="flex justify-end " key={item.link}>
-                        <Link to={item.link} className="">
-                          {item.title}
-                        </Link>
+                      <li className="flex flex-col justify-end" key={item.link}>
+                        <Link to={item.link}>{item.title}</Link>
                       </li>
                     );
                   })}

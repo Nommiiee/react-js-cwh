@@ -33,7 +33,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="w-full md:w-6/12 p-4">
-              <Link to="News">
+              <Link to="General">
                 <div className="shadow-md rounded-md p-4 hover:scale-105 transition-all transform duration-100 cursor-pointer dark:bg-gray-100 dark:text-slate-900">
                   <div className="">
                     <img

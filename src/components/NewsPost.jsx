@@ -14,16 +14,18 @@ export default function NewsPost(props) {
           </div>
           <div className="w-full  h-full p-4 flex flex-col gap-4 ">
             <div className="w-full ">
-              <h1 className="text-xl font-bold text-gray-800">
+              <h1 className="text-xl font-bold text-gray-800 dark:text-gray-50">
                 {props.title.slice(0, 50) + "..."}
               </h1>
               <p className="mt-2">
-                <span className="text-gray-600 ">By: </span>
-                <span className="text-gray-800 ">{props.author}</span>
+                <span className="text-gray-600 dark:text-gray-200">By: </span>
+                <span className="text-gray-800 dark:text-gray-50">
+                  {props.author}
+                </span>
               </p>
             </div>
             <div className="text-md">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-200">
                 {props.description.slice(0, 150) + "..."}
               </p>
             </div>
